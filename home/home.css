@@ -1,0 +1,162 @@
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
+.content {
+    width: 80%;
+    border: thin solid white;
+    position: relative;
+    background-color: #0d0d0d;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.content::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    right: -40px;
+    bottom: -20px;
+    border: thin solid white;
+    z-index: -1;
+}
+
+.content span {
+    font-size: 40px;
+    line-height: 60px;
+}
+
+.highlight-red {
+    background: linear-gradient(to right, #f44336, #f05);
+    background-clip: text;
+    color: transparent;
+    /* background-color: #f44336;
+    padding-left: 20px;
+    padding-right: 20px; */
+}
+
+.highlight-purple {
+    background: linear-gradient(to right, #50f, #f0f);
+    background-clip: text;
+    color: transparent;
+    /* background-color: #50f;
+    padding-left: 20px;
+    padding-right: 20px; */
+}
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+.ico {
+    font-size: 30px;
+    background-color: #2b2b2b;
+    text-align: center;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ico::before {
+    content: "";
+    width: 125%;
+    height: 125%;
+    background-color: #f1f1f1;
+    position: absolute;
+    rotate: -45deg;
+    left: -110%;
+    top: 90%;
+}
+
+.ico:hover i {
+    transition: .4s;
+    transform: scale(1.3);
+    color: #2b2b2b;
+}
+
+.ico:hover::before {
+    animation: wobble 0.7s 1;
+    top: -10%;
+    left: -10%;
+}
+
+@keyframes wobble {
+    0% {
+        left: -110%;
+        top: 90%;
+    }
+
+    50% {
+        left: 10%;
+        top: -30%;
+    }
+
+    100% {
+        top: -10%;
+        left: -10%;
+    }
+}
+
+.blog-btn {
+    border: none;
+    outline: none;
+    background-color: #f1f1f1;
+    color: #0d0d0d;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 15px 5px 0 #000;
+    margin-top: 50px;
+    transition: .1s;
+}
+
+.blog-btn:hover {
+    background-color: #e0e0e0;
+}
+
+@media screen and (max-width: 850px) {
+    main {
+        flex-direction: column-reverse;
+    }
+
+    .socials {
+        flex-direction: row;
+        margin-right: initial;
+    }
+
+    .ico {
+        margin-right: 20px;
+        width: 55px;
+    }
+
+    .content span {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .content {
+        padding: 30px;
+    }
+
+    /* .highlight-red, .highlight-purple {
+        padding-left: 5px;
+        padding-right: 5px;
+    } */
+}

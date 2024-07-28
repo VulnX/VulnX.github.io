@@ -1,0 +1,56 @@
+main {
+    padding-top: 200px;
+    padding-bottom: 100px;
+    width: 100%;
+    height: inherit;
+    overflow: auto;
+}
+
+main::-webkit-scrollbar {
+    display: none;
+}
+
+.title {
+    font-size: 3rem;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    border-bottom: thin solid white;
+}
+
+.project {
+    width: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 100px;
+}
+
+.content {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+}
+
+.project a {
+    text-decoration: none;
+    font-style: italic;
+    border-bottom: thin dotted grey;
+    transition: .1s;
+}
+
+.project a:hover {
+    border-bottom-style: solid;
+    border-bottom-color: white;
+}
+
+@media screen and (max-width: 850px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .content {
+        font-size: 1.25rem;
+    }
+
+    main {
+        padding-top: 100px;
+    }
+}

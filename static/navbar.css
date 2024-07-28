@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-drag: none;
+    color: white
+}
+
+body {
+    background-color: #0d0d0d;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    padding-left: 20%;
+    padding-right: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0d0d0d;
+    z-index: 1;
+}
+
+.navbar::after {
+    content: "";
+    height: 1px;
+    width: calc(100vw - (3%) * 2);
+    position: absolute;
+    left: 3%;
+    bottom: 0;
+    background-color: white;
+    box-shadow: 0px 0px 20px 5px #000;
+}
+
+.nav-logo {
+    font-size: 50px;
+}
+
+.nav-link {
+    font-size: 20px;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.nav-link:hover {
+    background-color: white;
+    color: #0d0d0d;
+    border-radius: 3px;
+}
+
+.montserrat-font {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.ibm-plex-serif-regular {
+    font-family: "IBM Plex Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@media screen and (max-width: 850px) {
+    .navbar {
+        padding-left: 5%;
+        padding-right: 5%;
+        height: 70px;
+    }
+
+    .nav-logo {
+        font-size: 2rem;
+    }
+
+    .nav-link {
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 1rem;
+    }
+}
