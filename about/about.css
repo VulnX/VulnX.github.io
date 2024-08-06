@@ -37,6 +37,16 @@ main::-webkit-scrollbar {
     position: relative;
     margin-top: 50%;
     margin-bottom: 50%;
+    opacity: 0;
+    transform: translateX(-100px);
+    filter: blur(5px);
+    transition: .3s;
+}
+
+.show-timeline-item {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
 }
 
 .timeline-textbox {
@@ -113,6 +123,7 @@ main::-webkit-scrollbar {
     max-width: calc(100% / 1.5);
     margin-top: 70px;
 }
+
 
 .skill-item {
     font-size: 20px;

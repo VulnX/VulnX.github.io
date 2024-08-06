@@ -26,54 +26,80 @@
                 <div class="timeline-item">
                     <div class="timeline-circle"><img src="./timeline-circle.svg"></div>
                     <div class="timeline-textbox">
-                        <p><h1 class="title ibm-plex-serif-regular">General Introduction to Programming</h1></p>
+                        <p>
+                        <h1 class="title ibm-plex-serif-regular">General Introduction to Programming</h1>
+                        </p>
                         <p class="duration"><small class="ibm-plex-serif-regular">2016 - 2017</small></p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-circle"><img src="./timeline-circle.svg"></div>
                     <div class="timeline-textbox">
-                        <p><h1 class="title ibm-plex-serif-regular">3D Modelling with Blender & Video Editing</h1></p>
+                        <p>
+                        <h1 class="title ibm-plex-serif-regular">3D Modelling with Blender & Video Editing</h1>
+                        </p>
                         <p class="duration"><small class="ibm-plex-serif-regular">2017 - 2018</small></p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-circle"><img src="./timeline-circle.svg"></div>
                     <div class="timeline-textbox">
-                        <p><h1 class="title ibm-plex-serif-regular">Basics of Cyber Security</h1></p>
+                        <p>
+                        <h1 class="title ibm-plex-serif-regular">Basics of Cyber Security</h1>
+                        </p>
                         <p class="duration"><small class="ibm-plex-serif-regular">2017 - 2019</small></p>
-                        <p class="content ibm-plex-serif-regular">During this time I started with general introduction to cybersecurity and learnt fundament concepts like networking, social engineering, common web attacks, etc.</p>
+                        <p class="content ibm-plex-serif-regular">During this time I started with general introduction
+                            to cybersecurity and learnt fundament concepts like networking, social engineering, common
+                            web attacks, etc.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-circle"><img src="./timeline-circle.svg"></div>
                     <div class="timeline-textbox">
-                        <p><h1 class="title ibm-plex-serif-regular">Switched to full-time Linux</h1></p>
+                        <p>
+                        <h1 class="title ibm-plex-serif-regular">Switched to full-time Linux</h1>
+                        </p>
                         <p class="duration"><small class="ibm-plex-serif-regular">2017 - present</small></p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-circle"><img src="./timeline-circle.svg"></div>
                     <div class="timeline-textbox">
-                        <p><h1 class="title ibm-plex-serif-regular">Low level development & Advanced security topics</h1></p>
+                        <p>
+                        <h1 class="title ibm-plex-serif-regular">Low level development & Advanced security topics</h1>
+                        </p>
                         <p class="duration"><small class="ibm-plex-serif-regular">2019 - 2021</small></p>
-                        <p class="content ibm-plex-serif-regular">During this time I started developing genuine interest towards cyber security. I learnt the basics of computer architecture, assembly language, shellcoding and got introduced to memory corruption exploits like buffer overflows.</p>
+                        <p class="content ibm-plex-serif-regular">During this time I started developing genuine interest
+                            towards cyber security. I learnt the basics of computer architecture, assembly language,
+                            shellcoding and got introduced to memory corruption exploits like buffer overflows.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-circle"><img src="./timeline-circle.svg"></div>
                     <div class="timeline-textbox">
-                        <p><h1 class="title ibm-plex-serif-regular">Web Development</h1></p>
+                        <p>
+                        <h1 class="title ibm-plex-serif-regular">Web Development</h1>
+                        </p>
                         <p class="duration"><small class="ibm-plex-serif-regular">2021 - 2023</small></p>
-                        <p class="content ibm-plex-serif-regular">During this time I was preparing for JEE, hence couldn't dedicate much time to hacking. Because I had a decent understanding of web security, I start with web development. I learnt front-end with HTML, CSS, JavaScript, React, Electron and backend with PHP, NodeJS, and MySQL.</p>
+                        <p class="content ibm-plex-serif-regular">During this time I was preparing for JEE, hence
+                            couldn't dedicate much time to hacking. Because I had a decent understanding of web
+                            security, I start with web development. I learnt front-end with HTML, CSS, JavaScript,
+                            React, Electron and backend with PHP, NodeJS, and MySQL.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-circle"><img src="./timeline-circle.svg"></div>
                     <div class="timeline-textbox">
-                        <p><h1 class="title ibm-plex-serif-regular">CTFs & Expanding my knowledge about binary exploitation</h1></p>
+                        <p>
+                        <h1 class="title ibm-plex-serif-regular">CTFs & Expanding my knowledge about binary exploitation
+                        </h1>
+                        </p>
                         <p class="duration"><small class="ibm-plex-serif-regular">2023 - present</small></p>
-                        <p class="content ibm-plex-serif-regular">During this time I found an excellent team with which I could participate in various international CTF events. This is when I got exposed to genuine challenges in cyber security. Previously I had very rudimentary understanding of low level topics but from here I started to really delve into the intricacies of memory corruption attacks.</p>
+                        <p class="content ibm-plex-serif-regular">During this time I found an excellent team with which
+                            I could participate in various international CTF events. This is when I got exposed to
+                            genuine challenges in cyber security. Previously I had very rudimentary understanding of low
+                            level topics but from here I started to really delve into the intricacies of memory
+                            corruption attacks.</p>
                     </div>
                 </div>
             </div>
@@ -212,6 +238,23 @@
             </ul>
         </div>
     </main>
+    <script>
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show-timeline-item');
+                }
+            });
+        });
+
+        const timelineItems = document.getElementsByClassName('timeline-item');
+        for (let item of timelineItems) {
+            console.log(item);
+            observer.observe(item);
+        }
+
+    </script>
 </body>
 
 </html>
