@@ -117,7 +117,9 @@ Here are my socials:
 
 | PLATFORMS                                              |
 |:------------------------------------------------------ |
+| [pwn.college](https://pwn.college/hacker/43275)        |
+| [YouTube](https://www.youtube.com/@thevulnx)           |
+| [GitHub](https://github.com/VulnX)                     |
 | [TryHackMe](https://tryhackme.com/p/VulnX)             |
 | [HackTheBox](https://app.hackthebox.com/users/1821256) |
-| [GitHub](https://github.com/VulnX)                     |
 | [CTFTime](https://ctftime.org/user/171307)             |
