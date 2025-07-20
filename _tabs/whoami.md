@@ -7,7 +7,7 @@ toc: false
 
 # Hi, I am **VulnX**
 
-I am second year Computer Engineering student who loves everything related to computers. I've been learning programming and cyber security for about 6-7 years.
+I am third year Computer Engineering student who loves everything related to computers. I've been learning programming and cyber security for about 7-8 years.
 
 ## Skill list
 
@@ -96,7 +96,7 @@ I am second year Computer Engineering student who loves everything related to co
 
 More specifically, I am passionate about `Cyber Security`. I thoroughly enjoy `Binary Exploitation`, `Exploit Development` and `Reverse Engineering`.
 
-I also actively participate in CTFs with my team [ResetSec](https://ctftime.org/team/266022). As you might have guessed, my favourite categories are `pwn` and `Reverse Engineering` *(unless others are exceptionally easy)*.
+I also actively participate in CTFs with my team [ResetSec](https://resetsec.github.io). As you might have guessed, my favourite categories are `pwn` and `Reverse Engineering` *(unless others are exceptionally easy)*.
 
 Aside from that I have some intermediate knowledge of:
 - Game Development with Unity
@@ -106,8 +106,8 @@ Aside from that I have some intermediate knowledge of:
 
 ---
 
-- Currently learning: Heap exploitation
-- Future plans: Learn and delve into kernel mode.
+- Currently learning: Heap and Kernel
+- Future plans: Learn and delve into v8 exploits.
 
 In this website I plan to post my writeups for the CTF challenges I am able to solve and a few tips and tricks that I have learnt along the way. I also plan to compile a list of resources for me and others like me to get started in cyber security and advance their skills.
 
