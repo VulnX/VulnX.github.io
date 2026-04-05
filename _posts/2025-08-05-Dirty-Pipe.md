@@ -2,7 +2,7 @@
 title: Dirty Pipe (CVE-2022-0847)
 date: 2025-08-05 22:00:00 + 0530
 image: /assets/img/59dd9cc4ba6eaf3c5cf29b0e819adb183c5c0af0fa5c4e990bc545704a1951bb.png
-categories: [Vulnerability Research]
+categories: [Vulnerability Research, CVE]
 tags: [pwn, kernel]     # TAG names should always be lowercase
 ---
 
