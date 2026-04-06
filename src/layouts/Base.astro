@@ -1,0 +1,56 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Socials from "../components/Socials.astro";
+import "../styles/global.css";
+const {
+  title = "VulnX",
+  description = "Personal blog of VulnX - Cybersecurity Research, CTF Writeups, and more.",
+  ogDescription = "Cybersec | CTFs • Research",
+  url = "https://vulnx.xyz/",
+  image = "/assets/logo.webp",
+  type = "website",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Basic -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={url} />
+    <meta property="og:type" content={type} />
+    <meta property="og:image" content={image} />
+
+    <!-- Styles -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link
+      rel="icon"
+      type="image/webp"
+      href="/assets/logo.webp"
+    />
+
+    <!-- Extra head injection -->
+    <slot name="head" />
+  </head>
+
+  <body>
+    <Navbar title=`${title}` />
+    <main>
+      <slot />
+    </main>
+    <Socials />
+  </body>
+</html>

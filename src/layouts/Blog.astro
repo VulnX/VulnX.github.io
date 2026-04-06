@@ -1,0 +1,27 @@
+---
+import Base from "./Base.astro";
+import "../styles/blog.css";
+const { title, date, event, category, difficulty, author, tags, description } =
+  Astro.props.frontmatter;
+---
+
+<Base title={title} description={description}>
+  <slot />
+  <div class="side-bar">
+    <span class="label"><span>Contents</span></span>
+    <ul class="toc"></ul>
+  </div>
+</Base>
+
+<script defer>
+  const headings = document.querySelectorAll("h1");
+  const toc = document.querySelector(".toc");
+  Object.entries(headings).map(([_, el]) => {
+    let li = document.createElement("li");
+    let a = document.createElement("a");
+    a.textContent = el.textContent;
+    a.href = `#${el.id}`;
+    li.appendChild(a);
+    toc.appendChild(li);
+  });
+</script>

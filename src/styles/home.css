@@ -1,0 +1,196 @@
+main {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5rem;
+}
+
+main p {
+  text-align: justify;
+  font-size: 1.5rem;
+}
+
+main h1 {
+  font-size: 3rem;
+  margin-top: 3rem;
+}
+
+.members-list {
+  background-color: var(--white);
+  box-shadow: 0 0 20px 5px var(--white);
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.member {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: 2.5rem;
+  border-bottom: thin solid rgba(0, 0, 0, 0.3);
+}
+
+.member img {
+  width: 150px;
+  border-radius: 5px;
+  margin-right: 100px;
+}
+
+.member-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3rem;
+}
+
+.member-name {
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+
+.member-name[data-rank]::after {
+  content: attr(data-rank);
+  color: var(--grey);
+  font-size: 0.75em;
+  font-style: italic;
+  font-weight: normal;
+  padding: 3px 10px;
+  margin: 0 5px;
+}
+
+.member-tags {
+  margin: 5px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.member-tag::before {
+  padding: 1px 10px;
+  border-radius: 100px;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+  margin: 0 3px;
+  white-space: nowrap;
+  color: var(--white);
+}
+
+.member-tag[data-tag="pwn"]::before {
+  content: attr(data-tag);
+  background-color: var(--red);
+}
+
+.member-tag[data-tag="web"]::before {
+  content: attr(data-tag);
+  background-color: var(--blue);
+}
+
+.member-tag[data-tag="forensics"]::before {
+  content: attr(data-tag);
+  background-color: var(--purple);
+}
+
+.member-tag[data-tag="mobile"]::before {
+  content: attr(data-tag);
+  background-color: var(--yellow);
+}
+
+.member-tag[data-tag="crypto"]::before {
+  content: attr(data-tag);
+  background-color: var(--dark-green);
+}
+
+.member-tag[data-tag="hardware"]::before {
+  content: attr(data-tag);
+  background-color: var(--grey);
+}
+
+.member-tag[data-tag="reverse engineering"]::before {
+  content: attr(data-tag);
+  background-color: var(--green);
+}
+
+.member-tag[data-tag="osint"]::before {
+  content: attr(data-tag);
+  background-color: var(--dark-red);
+}
+
+.member-tag[data-tag="dev"]::before {
+  content: attr(data-tag);
+  background-color: var(--dark-red);
+}
+
+.member-bio {
+  font-style: italic;
+  white-space: pre-line;
+}
+
+.member-details ul {
+  margin-top: 10px;
+  list-style-type: none;
+  line-height: 2rem;
+}
+
+.member-details ul li::before {
+  content: "-";
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2rem;
+  }
+
+  main h1 {
+    font-size: 2.2rem;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  main p {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .members-list {
+    padding: 2rem 0;
+    gap: 2rem;
+  }
+
+  .member {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .member img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .member-details {
+    font-size: 1rem;
+    align-items: center;
+  }
+
+  .member-name {
+    font-size: 1.3rem;
+  }
+
+  .member-tags {
+    justify-content: center;
+  }
+
+  .member-details ul {
+    text-align: left;
+    display: inline-block;
+  }
+}

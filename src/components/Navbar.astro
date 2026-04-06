@@ -1,0 +1,76 @@
+---
+import "../styles/navbar.css";
+const { title = "VulnX" } = Astro.props;
+---
+
+<nav class="navbar">
+  <div class="nav-logo">
+    <img src="/assets/logo.webp" alt="ResetSec logo" />
+  </div>
+  <span class="nav-title">
+    <span>{title}</span>
+  </span>
+  <div class="nav-links">
+    <ul>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/posts">Posts</a>
+      </li>
+      <li>
+        <a href="#">Achievements</a>
+      </li>
+    </ul>
+  </div>
+  <button class="hamburger" aria-label="Menu">
+    <i class="fas fa-bars"></i>
+  </button>
+</nav>
+<div class="mobile-links">
+  <ul>
+    <li>
+      <a href=`/`>Home</a>
+    </li>
+    <li>
+      <a href=`/posts`>Posts</a>
+    </li>
+    <li>
+      <a href="">Achievements</a>
+    </li>
+  </ul>
+</div>
+
+
+<script>
+  const title = document.querySelector(".nav-title span");
+  if (title) {
+    const text = title.textContent || "";
+    title.textContent = "";
+    const totalDuration = 1000;
+    const delay = totalDuration / text.length;
+    let i = 0;
+    function type() {
+      if (!title) return;
+      if (i < text.length) {
+        title.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, delay);
+      }
+    }
+    type();
+  }
+
+  const hamburger = document.querySelector(".hamburger");
+  const mobileLinks = document.querySelector(".mobile-links");
+
+  hamburger?.addEventListener("click", () => {
+    mobileLinks?.classList.toggle("active");
+    const icon = hamburger.querySelector("i");
+    if (icon) {
+      icon.classList.toggle("fa-bars");
+      icon.classList.toggle("fa-times");
+    }
+  });
+</script>
+

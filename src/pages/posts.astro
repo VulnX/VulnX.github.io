@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import PostCard from "../components/PostCard.astro";
+import "../styles/posts.css";
+
+const allPosts = await getCollection("posts");
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<Base title="My Posts">
+  <p class="page-description">
+    List of all my writeups and research blogs.
+  </p>
+
+  <div class="posts-container">
+    {sortedPosts.map((post) => (
+      <PostCard frontmatter={post.data} id={post.id} />
+    ))}
+  </div>
+</Base>

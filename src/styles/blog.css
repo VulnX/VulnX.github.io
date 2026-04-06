@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+p,
+ul,
+ol,
+blockquote,
+pre {
+  margin: 1.2em 0;
+}
+
+main {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  width: 70%;
+  margin-right: 5%;
+  margin-left: auto;
+  padding: 2rem;
+  background-color: var(--white);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 20%);
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+  }
+}
+
+
+
+/* =================================== headers ==================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.3em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+h1::before,
+h2::before,
+h3::before,
+h4::before,
+h5::before,
+h6::before {
+  content: "#";
+  vertical-align: middle;
+  font-size: 0.9em;
+  color: var(--grey);
+  margin-right: 0.5em;
+}
+
+
+/* ==================================== lists ===================================== */
+
+main ul {
+  list-style-type: none;
+}
+
+main ul li::before {
+  content: "-";
+  margin-right: 10px;
+}
+
+main ol {
+  padding: revert;
+}
+
+/* ================================= blockquotes ================================== */
+
+blockquote {
+  border-left: 5px solid var(--purple);
+  padding: 0.6rem 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  background: rgb(from var(--purple) r g b / 0.2);
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* ==================================== tables ==================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  background-color: var(--white);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+table thead th {
+  background-color: var(--off-white);
+  color: var(--black);
+  text-align: left;
+  padding: 0.8em 1em;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(from var(--grey) r g b / 0.5);
+}
+
+table tbody td {
+  padding: 0.6em 1em;
+  border-bottom: 1px solid #e5e5e5;
+  color: var(--black);
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* ==================================== images ==================================== */
+
+img {
+  max-width: 100%;
+}
+
+/* ================================= code blocks ================================== */
+
+code {
+  font-family: "IBM Plex Mono";
+}
+
+:not(pre)>code {
+  color: var(--dark-red);
+}
+
+pre {
+  background-color: var(--dark-grey) !important;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: -2rem;
+  margin-right: -2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: 1px solid var(--grey);
+  border-bottom: 1px solid var(--grey);
+}
+
+pre,
+pre * {
+  user-select: text;
+}
+
+@media screen and (max-width: 768px) {
+  pre {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 1rem;
+  }
+}
+
+/* =================================== divider ==================================== */
+
+hr {
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+  border: thin solid rgb(from var(--grey) r g b / 0.2);
+}
+
+/* ================================= collapsable ================================== */
+
+summary {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.side-bar {
+  width: 20%;
+  position: fixed;
+  left: 2%;
+  top: 150px;
+  font-size: 0.9em;
+  line-height: 1.5em;
+  --corner-size: 150px;
+}
+
+@media screen and (max-width: 768px) {
+  .side-bar {
+    display: none;
+  }
+}
+
+
+.side-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--corner-size);
+  height: var(--corner-size);
+  border-top: 2px solid var(--grey);
+  border-left: 2px solid var(--grey);
+}
+
+.side-bar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: var(--corner-size);
+  height: var(--corner-size);
+  border-bottom: 2px solid var(--grey);
+  border-right: 2px solid var(--grey);
+}
+
+.side-bar .label {
+  position: absolute;
+  top: -30px;
+  left: 6px;
+  background: var(--grey);
+  color: var(--white);
+  padding: 2px 10px;
+  font-weight: bold;
+  transform: skewX(-20deg);
+}
+
+.side-bar .label span {
+  display: inline-block;
+  transform: skewX(20deg);
+  /* fix text skew */
+}
+
+.toc {
+  padding: 0 10px;
+  list-style-type: none;
+  max-height: calc(100dvh - 200px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  box-shadow: 0 0 10px 0 var(--white);
+}
+
+.toc li::before {
+  content: initial;
+}
+
+.toc li a {
+  color: var(--grey);
+}
+
+.toc li a::after {
+  background-color: var(--grey);
+}

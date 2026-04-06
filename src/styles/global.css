@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --white: #ffffff;
+  --off-white: #f5f5f5;
+  --black: #0b0b0b;
+  --grey: #888888;
+  --dark-grey: #252525;
+  --red: #f85149;
+  --dark-red: #da3633;
+  --blue: #38bdf8;
+  --dark-blue: #0077ff;
+  --purple: #a371f7;
+  --yellow: #e3b341;
+  --green: #56d364;
+  --dark-green: #3fb950;
+}
+
+html {
+  scroll-padding-top: 120px;
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--white);
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  font-family: "Space Grotesk", monospace;
+  color: var(--black);
+}
+
+a {
+  text-decoration: none;
+  position: relative;
+  color: var(--dark-blue);
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--dark-blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.2s;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+}
