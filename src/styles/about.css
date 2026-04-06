@@ -1,0 +1,279 @@
+.about-wrapper {
+    width: 90%;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+/* ── Whoami ── */
+.whoami-section {
+    padding-top: 80px;
+}
+
+.whoami-section h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    border-bottom: thin solid #000;
+}
+
+.bio-card {
+    background-color: #fff;
+    border: thin solid #e0e0e0;
+    padding: 40px;
+    border-radius: 5px;
+    color: #0d0d0d;
+    font-size: 1.3rem;
+    line-height: 1.8;
+}
+
+.bio-card p {
+    margin-bottom: 1rem;
+}
+
+
+.bio-card a:hover {
+    text-decoration-thickness: 2px;
+}
+
+/* ── Timeline ── */
+.timeline-section {
+    margin-top: 80px;
+}
+
+.timeline-section>h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    border-bottom: thin solid #000;
+}
+
+.timeline-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.timeline-line {
+    width: 3px;
+    border-radius: 3px;
+    background: linear-gradient(#0af, #50f, #f05, #f44336);
+    flex-shrink: 0;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.timeline-circle {
+    position: absolute;
+    left: -14px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    z-index: 2;
+}
+
+.timeline-circle img {
+    display: none;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    margin-top: 50%;
+    margin-bottom: 50%;
+    opacity: 0;
+    transform: translateX(-100px);
+    filter: blur(5px);
+    transition: .3s;
+}
+
+.show-timeline-item {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.timeline-textbox {
+    background-color: white;
+    border: thin solid #e0e0e0;
+    padding: 50px 30px;
+    margin-left: 25px;
+    max-width: 40vw;
+    border-radius: 5px;
+    position: relative;
+}
+
+.timeline-textbox * {
+    color: black;
+}
+
+.timeline-textbox::before {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    background: transparent;
+    left: -32px;
+    top: calc(50% - 16px);
+    border: 16px solid transparent;
+    border-right-color: #e0e0e0;
+    z-index: 1;
+}
+
+.timeline-textbox::after {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    background: transparent;
+    left: -31px;
+    top: calc(50% - 16px);
+    border: 16px solid transparent;
+    border-right-color: white;
+    z-index: 1;
+}
+
+.title,
+.duration {
+    text-align: center;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: normal;
+}
+
+.duration {
+    font-size: 1.2rem;
+}
+
+.content {
+    margin-top: 30px;
+    line-height: 120%;
+    font-size: 1.5rem;
+}
+
+/* ── Skills ── */
+.skill-container {
+    padding: 10% 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.skill-container h1 {
+    font-size: 3rem;
+    border-bottom: thin solid #000;
+    text-align: left;
+    width: 100%;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    scale: 1.5;
+    max-width: calc(100% / 1.5);
+    margin-top: 70px;
+}
+
+.skill-item {
+    font-size: 20px;
+    transition: transform .2s;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+/* ── Connect ── */
+.connect-section {
+    padding-bottom: 100px;
+}
+
+.connect-section h1 {
+    font-size: 3rem;
+    border-bottom: thin solid #000;
+    margin-bottom: 40px;
+}
+
+.connect-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.connect-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 28px 20px;
+    background-color: #fff;
+    border: thin solid #e0e0e0;
+    color: #0d0d0d;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background 0.15s, border-color 0.15s;
+    text-align: center;
+}
+
+.connect-card i {
+    font-size: 2rem;
+}
+
+.connect-card::after {
+    all: unset;
+}
+
+.connect-card:hover {
+    background-color: #f9f9f9;
+    border-color: #ccc;
+}
+
+/* ── Responsive ── */
+@media screen and (max-width: 850px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .content {
+        font-size: 1.25rem;
+    }
+
+    .timeline-textbox {
+        max-width: 80vw;
+    }
+
+    .timeline-circle {
+        left: -12px;
+    }
+
+    .skill-container h1 {
+        font-size: 2rem;
+    }
+
+    .skill-list {
+        scale: 1;
+        margin-top: 20px;
+        max-width: 100%;
+    }
+
+    .connect-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .connect-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
