@@ -1,6 +1,6 @@
 ---
 title: Astralogy
-date: '2026-01-12T05:30:00+05:30'
+date: '2026-03-29T05:30:00+05:30'
 event: Blog Post
 category: writeup
 difficulty: Intermediate

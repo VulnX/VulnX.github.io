@@ -27,11 +27,12 @@ main {
 }
 
 .post-card {
-  background: var(--white);
+  height: 300px;
+  background: var(--dark-grey);
   border-radius: 14px;
   padding: 1.4rem;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 14px rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -41,7 +42,7 @@ main {
 
 .post-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.09);
+  box-shadow: 0 10px 22px rgba(255, 255, 255, 0.1);
 }
 
 .post-meta {
@@ -61,8 +62,8 @@ main {
   font-weight: 600;
   padding: 0.28rem 0.55rem;
   border-radius: 999px;
-  background: var(--off-white);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--black);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .event {
@@ -93,7 +94,7 @@ main {
 .post-title {
   font-size: 1.7rem;
   font-weight: 700;
-  color: var(--black);
+  color: var(--white);
   line-height: 1.35;
   margin-top: 0.2rem;
 }
@@ -102,6 +103,8 @@ main {
   font-size: 1.1rem;
   color: var(--grey);
   line-height: 1.5;
+  word-break: break-word;
+  flex: 1;
 }
 
 .tags {
@@ -115,8 +118,8 @@ main {
   font-size: 0.7rem;
   padding: 0.25rem 0.5rem;
   border-radius: 6px;
-  background: var(--off-white);
-  color: var(--dark-grey);
+  background: var(--black);
+  color: var(--grey);
 }
 
 .post-footer {
@@ -125,7 +128,7 @@ main {
   gap: 0.35rem;
   font-size: 0.8rem;
   color: var(--grey);
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding-top: 0.6rem;
   margin-top: 0.4rem;
 }

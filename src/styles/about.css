@@ -12,16 +12,11 @@
 .whoami-section h1 {
     font-size: 3rem;
     margin-bottom: 30px;
-    border-bottom: thin solid #000;
+    border-bottom: thin solid var(--white);
 }
 
 .bio-card {
-    background-color: #fff;
-    border: thin solid #e0e0e0;
-    padding: 40px;
-    border-radius: 5px;
-    color: #0d0d0d;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     line-height: 1.8;
 }
 
@@ -42,7 +37,7 @@
 .timeline-section>h1 {
     font-size: 3rem;
     margin-bottom: 30px;
-    border-bottom: thin solid #000;
+    border-bottom: thin solid var(--white);
 }
 
 .timeline-container {
@@ -70,8 +65,8 @@
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background-color: white;
-    border: 1px solid #e0e0e0;
+    background-color: var(--black);
+    border: 3px solid var(--off-white);
     z-index: 2;
 }
 
@@ -99,8 +94,7 @@
 }
 
 .timeline-textbox {
-    background-color: white;
-    border: thin solid #e0e0e0;
+    background-color: var(--off-white);
     padding: 50px 30px;
     margin-left: 25px;
     max-width: 40vw;
@@ -109,7 +103,7 @@
 }
 
 .timeline-textbox * {
-    color: black;
+    color: var(--black);
 }
 
 .timeline-textbox::before {
@@ -121,7 +115,7 @@
     left: -32px;
     top: calc(50% - 16px);
     border: 16px solid transparent;
-    border-right-color: #e0e0e0;
+    border-right-color: var(--dark-grey);
     z-index: 1;
 }
 
@@ -134,7 +128,7 @@
     left: -31px;
     top: calc(50% - 16px);
     border: 16px solid transparent;
-    border-right-color: white;
+    border-right-color: var(--off-white);
     z-index: 1;
 }
 
@@ -169,7 +163,7 @@
 
 .skill-container h1 {
     font-size: 3rem;
-    border-bottom: thin solid #000;
+    border-bottom: thin solid var(--white);
     text-align: left;
     width: 100%;
 }
@@ -199,7 +193,7 @@
 
 .connect-section h1 {
     font-size: 3rem;
-    border-bottom: thin solid #000;
+    border-bottom: thin solid var(--white);
     margin-bottom: 40px;
 }
 
@@ -216,9 +210,8 @@
     justify-content: center;
     gap: 12px;
     padding: 28px 20px;
-    background-color: #fff;
-    border: thin solid #e0e0e0;
-    color: #0d0d0d;
+    background-color: var(--dark-grey);
+    color: var(--white);
     text-decoration: none;
     border-radius: 5px;
     font-size: 1.1rem;
@@ -235,8 +228,7 @@
 }
 
 .connect-card:hover {
-    background-color: #f9f9f9;
-    border-color: #ccc;
+    background-color: var(--grey);
 }
 
 /* ── Responsive ── */

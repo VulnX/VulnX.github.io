@@ -3,9 +3,7 @@ import "../styles/posts.css";
 const {
   title,
   date,
-  event,
   category,
-  difficulty,
   author = [],
   tags = [],
   description,
@@ -15,60 +13,52 @@ const { id } = Astro.props;
 
 <a href=`/posts/${id}`>
   <div class="post-card">
-    <div class="post-meta">
-      <div class="meta-left">
-        {event && <span class="badge event">{event}</span>}
-        {category && <span class="badge category">{category}</span>}
-      </div>
-
-      {
-        difficulty && (
-          <span class={`badge difficulty ${difficulty.toLowerCase()}`}>
-            {difficulty}
-          </span>
-        )
-      }
-    </div>
-
     <h2 class="post-title">{title}</h2>
     <p class="post-desc">{description}</p>
 
-    {
-      tags.length > 0 && (
-        <div class="tags">
-          {tags.map((tag) => (
-            <span class="tag">{tag}</span>
-          ))}
-        </div>
-      )
-    }
-
-    <div class="post-footer">
-      <div class="authors">
-        <i class="fa-regular fa-user"></i>
-        <span>
+    <div class="idk">
+      <div class="post-meta">
+        <div class="meta-left">
           {
-            author.map((a, i) => (
-              <span>
-                {a}
-                {i < author.length - 1 ? ", " : ""}
-              </span>
-            ))
+            tags.length > 0 && (
+              <div class="tags">
+                {tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            )
           }
-        </span>
+        </div>
+        {category && <span class="badge category">{category}</span>}
       </div>
 
-      <div class="date">
-        <i class="fa-regular fa-calendar"></i>
-        <span>
-          {
-            new Date(date).toLocaleDateString(undefined, {
-              year: "numeric",
-              month: "short",
-              day: "numeric",
-            })
-          }
-        </span>
+      <div class="post-footer">
+        <div class="authors">
+          <i class="fa-regular fa-user"></i>
+          <span>
+            {
+              author.map((a, i) => (
+                <span>
+                  {a}
+                  {i < author.length - 1 ? ", " : ""}
+                </span>
+              ))
+            }
+          </span>
+        </div>
+
+        <div class="date">
+          <i class="fa-regular fa-calendar"></i>
+          <span>
+            {
+              new Date(date).toLocaleDateString(undefined, {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })
+            }
+          </span>
+        </div>
       </div>
     </div>
   </div>

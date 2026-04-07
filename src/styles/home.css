@@ -11,9 +11,9 @@
 .content {
   width: 80%;
   max-width: 800px;
-  border: thin solid #000;
+  border: thin solid var(--white);
   position: relative;
-  background-color: #fff;
+  background-color: var(--black);
   padding-left: 50px;
   padding-right: 50px;
   padding-top: 30px;
@@ -25,9 +25,8 @@
   height: 100%;
   width: 100%;
   position: absolute;
-  right: -20px;
   bottom: -20px;
-  border: thin solid #000;
+  border: thin solid var(--white);
   z-index: -1;
 }
 
