@@ -64,9 +64,15 @@ main ul {
   list-style-type: none;
 }
 
+main ul li {
+  display: flex;
+  align-items: baseline;
+}
+
 main ul li::before {
   content: "-";
   margin-right: 10px;
+  flex-shrink: 0;
 }
 
 main ol {
