@@ -187,7 +187,7 @@ summary {
   top: 150px;
   font-size: 0.9em;
   line-height: 1.5em;
-  --corner-size: 150px;
+  --corner-size: min(100%, 150px);
 }
 
 @media screen and (max-width: 768px) {

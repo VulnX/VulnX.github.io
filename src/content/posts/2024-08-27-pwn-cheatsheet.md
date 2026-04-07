@@ -21,36 +21,36 @@ description: '> I will keep updating this as and when I learn more. {: .promptti
 
 When I started my journey in learning binary exploitation, I found it difficult to find good quality free resources. Here I plan to compile a list of resources which would have been just apt for me to get started.
 
-## Basics
+# Basics
 
 Binary exploitation is a vast and very complicated thing. I often find sticking to the basic simple concepts more helpful.
 
-### Learn C/C++
+## Learn C/C++
 
 Python, Java, Rust, Go and all are great but when dealing with such low level concepts its advisable to have a solid understanding of C/C++
 
 The goal isn't to become an absolute master in C but to have a decent enough understanding such that, given enough time and resources you are able to write solutions no matter how complex the problem is.
 
-#### RESOURCES
+### RESOURCES
 
 1. [Computer Science - Crash Course](https://youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&si=da0TXgtYqKC7S9b7)
 2. [https://www.learn-c.org/](https://www.learn-c.org/)
 
-### Pointers and memory
+## Pointers and memory
 
 Focus on pointer and how data structures are implemented in memory. Try automatically common tasks by writing the solution in C and test your skills. Start using the GLIBC functions extensively, purely for the sake of exposure.
 
-#### RESOURCES
+### RESOURCES
 
 1. [Understanding Pointers](https://github.com/jflaherty/ptrtut13/)
 2. [Another fun video for complex pointer syntax](https://youtu.be/qclZUQYZTzg?si=bV2vJmo7k1b8-Ezo)
 3. [Clockwise Spiral Rule - Useful for breaking down complex pointer expression (if understood)](https://c-faq.com/decl/spiral.anderson.html)
 
-### Assembly
+## Assembly
 
 Having a good understanding of assembly is very benefical in reverse engineering. But it is also a very satisfying process.
 
-### RESOURCES
+## RESOURCES
 
 1. [x86 course](https://0xinfection.github.io/reversing/pages/x86-course.html)
 2. [asmtutor](https://asmtutor.com)
@@ -62,7 +62,7 @@ Although x86 is still useful, but 32-bit systems are comparatively rare now. It'
 
 Don't rush into things. Always remember, learning these low level concepts isn't a prerequisite for pwning, but rather a part of it.
 
-## Reverse Engineering
+# Reverse Engineering
 
 I strongly believe that this section deserves a separate post but for now since I have limited resources, let it be.
 
@@ -74,13 +74,13 @@ For bigger or more complex problems, don't hesitate to use a decompiler like [gh
 
 Best way to advance your skills is by solving different types of challenges. Checkout [crackmes.one](https://crackmes.one/)
 
-## Binary exploitation
+# Binary exploitation
 
-### 💎 **pwn.college**
+## 💎 **pwn.college**
 
 pwn college is without doubt one of the most excellent free cyber security resource you can find on the internet. I highly recommend using this for learning pwn and some reverse engineering.
 
-### RESOURCES
+## RESOURCES
 
 | [pwn.college](https://pwn.college)                                                                    | GOLDMINE pwn content                                                                                                                 |
 | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |

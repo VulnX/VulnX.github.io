@@ -13,11 +13,11 @@ tags:
 description: 'Explanation  {% include embed/youtube.html id=''i1C9GRfMtYE'' %}   Solution  c
   // Compile with: muslgcc static o exploit exploit.c include <fcntl.h> inc...'
 ---
-## Explanation
+# Explanation
 
 {% include embed/youtube.html id='i1C9GRfMtYE' %}
 
-## Solution
+# Solution
 
 ```c
 // Compile with: musl-gcc -static -o exploit exploit.c
@@ -163,6 +163,6 @@ io.interactive()
 ```
 {: file="solve.py"}
 
-## Flag
+# Flag
 
 `HTB{C0ngr4ts_y0u_3xpl0it3d_A_D0uBlE-FeTcH}`

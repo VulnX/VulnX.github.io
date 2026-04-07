@@ -19,7 +19,7 @@ description: 'Impact: Local privilege escalation  Type: Arbitrary File Write  Wh
 - v5.8 <= **affected kernels** < 5.10.102, 5.15.25, 5.16.11
 - **Fix**: [Kernel patch](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=9d2231c5d74e13b2a0546fee6737ee4446017903)
 
-## Setting up vulnerable environment
+# Setting up vulnerable environment
 
 - Download Linux v5.8
 - Build with `CONFIG_DEBUG_INFO=y` enabled
@@ -29,15 +29,15 @@ description: 'Impact: Local privilege escalation  Type: Arbitrary File Write  Wh
   - [`ptr` may be used after `realloc`](https://unix.stackexchange.com/a/767697)
 - Start playing
 
-## TODO
+# TODO
 
 - [ ] Why is `echo 3 > /proc/sys/vm/drop_caches` not restoring original state of file
 
 ---
 
-## 1. Files
+# 1. Files
 
-### 1.1 Background
+## 1.1 Background
 
 ["Everything is a file"](https://en.wikipedia.org/wiki/Everything_is_a_file), is a core concept in Unix and Unix-like operating systems (including Linux). It is a fundamental design principle treating various system resources as if they were ordinary files for interaction and management. This includes:
 
@@ -48,11 +48,11 @@ description: 'Impact: Local privilege escalation  Type: Arbitrary File Write  Wh
 5. Sockets
 6. so on
 
-### 1.2 Privileged files
+## 1.2 Privileged files
 
 Certain files like `/proc/kallsyms`, `/dev/mem` or `/etc/shadow` are considered privileged files, because they are only accessible by the root user, or processes with elevated privileges. These files control critical aspects of the system like kernel symbols, memory contents and user credentials respectively.
 
-### 1.3 Dirty pipe
+## 1.3 Dirty pipe
 
 One of such privileged files is `/etc/passwd`. This file is typically readable by non root users to determine existing users on the system and some basic information regarding them. However, as a legacy feature this file can also be used to store user credentials. Hence, for obvious reasons, it is not writable by any non root user.
 
@@ -65,7 +65,7 @@ With this arbitrary file write primitive, an attacker can:
 
 And achieve the same in possibly many other ways as well.
 
-### 1.4 Copy-On-Write (CoW)
+## 1.4 Copy-On-Write (CoW)
 
 Understanding Copy-On-Write (CoW) is crucial to exploiting the dirty pipe vulnerability. To understand CoW, let's take a look at how a naive file copy program would work:
 1. Read file from disk into buffer:
@@ -86,9 +86,9 @@ However, there is a major drawback associated with this method. This naive metho
 > While this CoW principle is typically only implemented at the memory level, some filesystems like BTRFS and ZFS do implement it for actual disk data as well, making them more space efficient at certain times.
 {: .prompt-info }
 
-## 2. Pipes
+# 2. Pipes
 
-### 2.1 Background
+## 2.1 Background
 
 Pipes in Linux, are a form of Inter-Process Communication (IPC) that allow the data to flow from one process to another in a unidirectional stream. Most commonly they are used to connect the output of one command to the input of another in the shell, like this:
 
@@ -111,7 +111,7 @@ pipe(pipefd);
 // pipefd[1] -> Write end of the pipe
 ```
 
-### 2.2 How is it implemented in the kernel
+## 2.2 How is it implemented in the kernel
 
 > From this section onward we will start delving into the kernel source code.
 {: .prompt-warning }
@@ -175,7 +175,7 @@ pipe(int pipefd[2]) called
                             -> alloc_pipe_info
 ```
 
-### 2.3 But what about CoW?
+## 2.3 But what about CoW?
 
 As discussed in the previous sections, following the CoW principle, when a file is written into a pipe, the actual bytes are NOT copied, instead only the page cache which is backing the file, gets copied into the pipe buffer's `page` field.
 
@@ -189,9 +189,9 @@ Previous versions of the kernel handled this via the `ops` field of `struct pipe
 
 However, [starting with version 5.8](https://github.com/torvalds/linux/commit/f6dd975583bd8ce088400648fd9819e4691c8958), this functionality is handled by the `flags` field of the `struct pipe_buffer`. In particular this version introduced a new flag bit `PIPE_BUF_FLAG_CAN_MERGE`, [see](https://elixir.bootlin.com/linux/v5.8/source/fs/pipe.c#L469). If this flag is set, our data can be directly written into the pipe buffer's page. If it is not set ( which should be the case when file's page cache reference is saved in `->page` ), then the kernel will make a copy of the page and write the contents there, leaving the original page cache untouched.
 
-## 3. Splice
+# 3. Splice
 
-### 3.1 Background
+## 3.1 Background
 
 The `splice` system call is yet another performance optimization related to file I/O. It allows data to be transferred between two file descriptors (either should be a pipe) directly in kernel space without needing to go through userspace at all. This makes it a true zero-copy mechanism.
 
@@ -203,7 +203,7 @@ splice(pipefd[0], NULL, sock, NULL, 4096, 0); // pipe -> socket
 // Optimized for : cat example.txt | nc 127.0.0.1 12345
 ```
 
-### 3.2 The real vulnerability
+## 3.2 The real vulnerability
 
 You might wonder why did we suddenly bring splice into the picture, the answer is that, not all implementation of pipes are correctly setup.
 
@@ -239,9 +239,9 @@ where it clearly does not set the flags to 0:
 
 What this means is that, calling splice makes the pipe buffer use the previous state of flags. And we can easily make the previous state of flags contains the `PIPE_BUF_FLAG_CAN_MERGE` bit set by using a normal anonymous pipe like we do for IPC.
 
-## 4. Dirty pipe
+# 4. Dirty pipe
 
-### 4.1 Strategy
+## 4.1 Strategy
 
 As discussed previously, the exploitation path is simple:
 
@@ -261,7 +261,7 @@ As discussed previously, the exploitation path is simple:
 > This only affects the page cache in kernel memory, not the real file on the disk. On next boot, the file should be restored to original state, unless some other process flushes this page cache to the disk saving it manually.
 {: .prompt-tip }
 
-### 4.2 Conditions
+## 4.2 Conditions
 
 You might have already noticed that there are a few conditions that need to be met for this attack to succeed:
 
@@ -271,7 +271,7 @@ You might have already noticed that there are a few conditions that need to be m
 4. The file should be readable by us, in order to `splice`.
 5. We can only overwrite existing bytes of the file, that is, we cannot enlarge the file.
 
-### 4.3 Proof-Of-Concept (PoC)
+## 4.3 Proof-Of-Concept (PoC)
 
 ```c
 #define _GNU_SOURCE
@@ -358,7 +358,7 @@ aahaaaiaaajaaakaaalaaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa
 /tests $
 ```
 
-## 5. Detection and Mitigation
+# 5. Detection and Mitigation
 
 Since the overwrite happens in the kernel space, it is not possible for a userspace process to detect this behavior directly. This leaves only eBPF based approaches to detect in-memory corruption of page cache. Or periodic hash based integrity checks against sensitive files.
 
@@ -387,7 +387,7 @@ index b0e0acdf96c15e..6dd5330f7a9957 100644
         buf->len = min_t(ssize_t, left, PAGE_SIZE);
 ```
 
-## References
+# References
 - [https://dirtypipe.cm4all.com/](https://dirtypipe.cm4all.com/)
 - [https://www.aquasec.com/blog/deep-analysis-of-the-dirty-pipe-vulnerability/](https://www.aquasec.com/blog/deep-analysis-of-the-dirty-pipe-vulnerability/)
 - [https://knqyf263.hatenablog.com/entry/2022/03/11/105130](https://knqyf263.hatenablog.com/entry/2022/03/11/105130)

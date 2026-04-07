@@ -16,7 +16,7 @@ Overall a very nice CTF with a good difficulty curve and well made challenges. I
 
 ---
 
-## pwn/Tutorial
+# pwn/Tutorial
 
 > Before we start, practice time!<br>
 > Attachment: [pwn_tutorial.zip](https://github.com/ResetSec/HTB-Cyber-Apocalypse-2024/blob/main/pwn/Tutorial/pwn_tutorial.zip)
@@ -25,12 +25,12 @@ Just use the given binary to answer the very basic questions regarding integer o
 
 ---
 
-## pwn/Delulu
+# pwn/Delulu
 
 > HALT! Recognition protocol initiated. Please present your face for scanning.<br>
 > Attachment: [pwn_delulu.zip](https://github.com/ResetSec/HTB-Cyber-Apocalypse-2024/blob/main/pwn/Delulu/pwn_delulu.zip)
 
-### Analysis
+## Analysis
 
 On reversing with ghidra we get the following source:
 
@@ -116,7 +116,7 @@ local_48 = 0x1337babe;
 local_40 = &local_48;
 ```
 
-### Exploit
+## Exploit
 
 According to [64-bit calling convention](https://www.ired.team/miscellaneous-reversing-forensics/windows-kernel-internals/linux-x64-calling-convention-stack-frame) in linux, the first 6 arguments to any function are passed via registers and the rest are passed via the stack. So the 7th arg (index 6) to printf is the first stack value and the 8th arg (index 7) is the second stack value.
 
@@ -191,18 +191,18 @@ FLAG: HTB{m45t3r_0f_d3c3pt10n}
 [*] Closed connection to 83.136.250.218 port 39766
 ```
 
-### Flag
+## Flag
 
 `HTB{m45t3r_0f_d3c3pt10n}`
 
 ---
 
-## pwn/Writing on the wall
+# pwn/Writing on the wall
 
 > As you approach a password-protected door, a sense of uncertainty envelops you—no clues, no hints. Yet, just as confusion takes hold, your gaze locks onto cryptic markings adorning the nearby wall. Could this be the elusive password, waiting to unveil the door's secrets?<br>
 > Attachment: [pwn_writing_on_the_wall.zip](https://github.com/ResetSec/HTB-Cyber-Apocalypse-2024/blob/main/pwn/Writing_on_the_Wall/pwn_writing_on_the_wall.zip)
 
-### Analysis
+## Analysis
 
 On reversing with ghidra we get the following source:
 
@@ -337,7 +337,7 @@ We have our input in RDX and the source string in RAX. But look closely, the las
 
 This means that, while we cannot make the two strings equal, we can control what the first byte of source string will be.
 
-### Exploit
+## Exploit
 
 How about we set it to NULL? That would terminate the source string at length: 0.
 
@@ -405,17 +405,17 @@ FLAG: HTB{3v3ryth1ng_15_r34d4bl3}
 [*] Closed connection to 83.136.250.103 port 52130
 ```
 
-### Flag
+## Flag
 
 `HTB{3v3ryth1ng_15_r34d4bl3}`
 
 ---
 
-## pwn/Pet companion
+# pwn/Pet companion
 
 > Attachment: [pwn_pet_companion.zip](https://github.com/ResetSec/HTB-Cyber-Apocalypse-2024/blob/main/pwn/Pet_Companion/pwn_pet_companion.zip)
 
-### Analysis
+## Analysis
 
 On reversing with ghidra we get the following source:
 
@@ -505,7 +505,7 @@ and send the following ROP chain for the next BoF:
 
 - system()
 
-### Exploit
+## Exploit
 
 ```python
 #!/usr/bin/env python3
@@ -589,20 +589,20 @@ $ cat flag.txt
 HTB{c0nf1gur3_w3r_d0g}
 ```
 
-### Flag
+## Flag
 
 `HTB{c0nf1gur3_w3r_d0g}`
 
 ---
 
-## pwn/Rocket Blaster XXX
+# pwn/Rocket Blaster XXX
 
 > Prepare for the ultimate showdown! Load your weapons, gear up for battle, and dive into the epic fray—let the fight commence!<br>
 > Attachment: [pwn_rocket_blaster_xxx.zip](https://github.com/ResetSec/HTB-Cyber-Apocalypse-2024/blob/main/pwn/Rocket_Blaster_XXX/pwn_rocket_blaster_xxx.zip)
 
 Literally same as `Pet Companion`. Absolutely no change required in solve technique.
 
-### Exploit
+## Exploit
 
 ```py
 #!/usr/bin/env python3
@@ -677,20 +677,20 @@ $ cat flag.txt
 HTB{b00m_b00m_r0ck3t_2_th3_m00n}
 ```
 
-### Flag
+## Flag
 `HTB{b00m_b00m_r0ck3t_2_th3_m00n}`
 
 ---
 
-## pwn/Sound of Silence
+# pwn/Sound of Silence
 
 I lost my writeup for this chall 😭 so you can refer [this](https://github.com/hackthebox/cyber-apocalypse-2024/tree/main/pwn/%5BMedium%5D%20Sound%20of%20Silence)
 
-## pwn/Deathnote
+# pwn/Deathnote
 > You stumble upon a mysterious and ancient tome, said to hold the secret to vanquishing your enemies. Legends speak of its magic powers, but cautionary tales warn of the dangers of misuse. <br>
 > Attachment: [pwn_deathnote.zip](https://github.com/hackthebox/cyber-apocalypse-2024/blob/main/pwn/%5BMedium%5D%20Death%20Note/release/pwn_deathnote.zip)
 
-### Analysis
+## Analysis
 
 On reversing with ghidra we get the following source:
 
@@ -801,7 +801,7 @@ void _(char **pages)
 }
 ```
 
-### Vulnerability
+## Vulnerability
 
 The first vulnerability lies in `delete()` here:
 
@@ -837,7 +837,7 @@ For that, we again need a libc leak.
 > NOTE: Program uses *GNU C Library (Ubuntu GLIBC 2.35-0ubuntu3.6) stable release version 2.35.* <br>
 > So hooks are removed and tcachebin is introduced.
 
-### Exploit
+## Exploit
 
 [A libc leak is trivial due to unsorted bin leak](https://drive.google.com/file/d/1eJskblBnGMOM-lKyDKcqVFh8EQG1GB48/view), but the issue is, the max chunk size can be 128 bytes, and on freeing that chunk it will land up either in fastbin (if tcache is full) or in the tcachebin.
 
@@ -958,15 +958,15 @@ $ cat flag.txt
 HTB{0m43_w4_m0u_5h1nd31ru~uWu}
 ```
 
-### Flag
+## Flag
 
 `HTB{0m43_w4_m0u_5h1nd31ru~uWu}`
 
-## rev/Crushing
+# rev/Crushing
 
 > Attachment: [rev_crushing.zip](https://github.com/hackthebox/cyber-apocalypse-2024/blob/main/reversing/%5BEasy%5D%20Crushing/release/rev_crushing.zip)
 
-### Analysis
+## Analysis
 
 On reversing with ghidra we get the following source:
 
@@ -1049,7 +1049,7 @@ The `add_char_to_map` function basically prepares 255 linked list where the nth 
 
 Then we `serialize_and_output(buffer)`. That function prints the length of the linked list ( calculated via `list_len()` ) and then iterates over that list and prints out the positions where `(char)index` appeared in the input.
 
-### Exploit
+## Exploit
 
 We can start by reading the `message.txt.cz` file in 8 byte chunks and read the frequency of `ith` character in the input and the next subsequent `i` chunks as the indexes of where it appeared. We can create a dictionary containing characters and their respective indexes.
 
@@ -1108,6 +1108,6 @@ Organizer 1: Absolutely. The thrill of the unknown is what keeps them coming bac
 
 It turns out that isn't just the flag but rather a full-fledged conversation 😅
 
-### Flag
+## Flag
 
 `HTB{4_v3ry_b4d_compr3ss1on_sch3m3}`

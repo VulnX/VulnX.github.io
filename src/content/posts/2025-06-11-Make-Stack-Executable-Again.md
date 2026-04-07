@@ -13,7 +13,7 @@ tags:
 description: Background  Suppose you have pwned a process and can execute your ROP
   chain, that seems great at first because now you can pop a shell right? But what...
 ---
-## Background
+# Background
 
 Suppose you have pwned a process and can execute your ROP chain, that seems great at first because now you can pop a shell right? But what if:
 
@@ -26,7 +26,7 @@ Sometimes, you just need to have a shellcode in memory, because inarguably a she
 
 But the real question is, now that every non-severely-outdated program has [`NX`](https://en.wikipedia.org/wiki/NX_bit) enabled, how do you execute a shellcode in the first place?
 
-## mprotect
+# mprotect
 
 The conventional way to enable a certain set of memory protections over a page(s) of memory is to use the [`mprotect`](https://linux.die.net/man/2/mprotect) syscall. The signature of the syscall is:
 
@@ -40,7 +40,7 @@ If you have control over all these registers simultaneously, then you can make a
 
 But did you know, there is an even hackier way to call `mprotect` indirectly, and this requires control of only 1 register: `RDI`.
 
-## nptl_change_stack_perm
+# nptl_change_stack_perm
 
 NPTL stands for Naitve POSIX Thread Library. It's the default standard for the implementation of POSIX threads (pthreads). You can read more about it [here on the wiki](https://en.wikipedia.org/wiki/Native_POSIX_Thread_Library).
 
@@ -81,7 +81,7 @@ By looking at the definition of `__nptl_change_stack_perm`, it is evident that o
 > Actually, since the `guardsize` field is common for calculating both, `void *stack` and `size_t len`, then you can easily include guardsize as a part of your ROP chain and adjust the other 2 fields to give mathematically valid result. This will further compress the ROP chain saving 8 more bytes ;)
 {: .prompt-tip }
 
-## Example
+# Example
 
 Consider the following vulnerable code:
 

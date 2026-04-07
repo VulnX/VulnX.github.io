@@ -19,7 +19,7 @@ Arena
 Chunks
 : A chunk is a block of memory within an arena, allocated from the contiguous region managed by the arena. Each chunk has metadata that tracks its size and allocation status, allowing it to be allocated or freed as needed.
 
-## Arena
+# Arena
 
 - A single-threaded program typically has only one arena, known as the main arena. This is where your usual `malloc` allocations come from.
 - But a multithreaded process may have more than one arena to allow the thread to manage memory more efficiently without relying on `mutex` for thread synchronization.
@@ -27,7 +27,7 @@ Chunks
 - If a new thread is created and no separate arena can be created for it, then it finds an already *available* arena (that which does not currently hold the `mutex` lock) and attaches itself to it.
 - The address of the arena, number of attached threads and other chunks/bins information is tracked by `GLIBC` with the help of the [`malloc_state` struct](https://elixir.bootlin.com/glibc/glibc-2.35/source/malloc/malloc.c#L1830) as a global variable.
 
-## Chunks
+# Chunks
 
 - In `GLIBC`'s memory allocation system, a chunk is the basic unit of memory management used internally by malloc, free, and related functions.
 - When memory is requested, malloc carves out a chunk from an arena (or a bin, but more on that later).

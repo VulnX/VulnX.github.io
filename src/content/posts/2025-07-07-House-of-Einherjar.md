@@ -13,7 +13,7 @@ tags:
 description: How it works   House of Einherjar is a goto method for heap exploitation
   in case of a single NULL byte overflow vulnerability.  It can be used to obta...
 ---
-## How it works
+# How it works
 
 - House of Einherjar is a go-to method for heap exploitation in case of **a single NULL byte overflow** vulnerability.
 - It can be used to obtain overlapping chunks
@@ -69,7 +69,7 @@ _After consolidation_
 - This includes (overlaps) with the `middle` chunk entirely
 - This is where the `middle` chunk's headers/data can be manipulated to launch other attacks
 
-## PoC
+# PoC
 
 ```c
 /**

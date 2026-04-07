@@ -17,19 +17,19 @@ A (Work-In-Progress) writeup for studying Cross-Cache attacks in the Linux kerne
 
 ---
 
-## Reference Material
+# Reference Material
 
-### SLUB
+## SLUB
 - [https://events.static.linuxfound.org/images/stories/pdf/klf2012_kim.pdf](https://events.static.linuxfound.org/images/stories/pdf/klf2012_kim.pdf)
 - [https://ruffell.nz/programming/writeups/2019/02/15/looking-at-kmalloc-and-the-slub-memory-allocator.html](https://ruffell.nz/programming/writeups/2019/02/15/looking-at-kmalloc-and-the-slub-memory-allocator.html)
 - [https://blogs.oracle.com/linux/linux-slub-allocator-internals-and-debugging-1](https://blogs.oracle.com/linux/linux-slub-allocator-internals-and-debugging-1)
 - [https://sam4k.com/linternals-memory-allocators-0x02/](https://sam4k.com/linternals-memory-allocators-0x02/)
 
-### BUDDY
+## BUDDY
 - [https://syst3mfailure.io/linux-page-allocator/](https://syst3mfailure.io/linux-page-allocator/)
 - [https://www.geeksforgeeks.org/operating-systems/buddy-system-memory-allocation-technique/](https://www.geeksforgeeks.org/operating-systems/buddy-system-memory-allocation-technique/)
 
-### CROSS-CACHE
+## CROSS-CACHE
 - [https://u1f383.github.io/linux/2025/01/03/cross-cache-attack-cheatsheet.html](https://u1f383.github.io/linux/2025/01/03/cross-cache-attack-cheatsheet.html)
 - [https://www.usenix.org/system/files/sec23summer_79-lee-prepub.pdf](https://www.usenix.org/system/files/sec23summer_79-lee-prepub.pdf)
 - [https://dl.acm.org/doi/10.1145/3719027.3765152](https://dl.acm.org/doi/10.1145/3719027.3765152)

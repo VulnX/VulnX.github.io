@@ -19,7 +19,7 @@ description: '> This series is about the GNU allocatorhttps://www.gnu.org/softwa
 > Some information might be incorrect as I am creating these posts while learning myself
 {: .prompt-warning }
 
-## What is heap?
+# What is heap?
 
 Heap
 : Heap is a region of memory divided into chunks which are managed by the dynamic memory allocator.
@@ -31,11 +31,11 @@ Heap
     3. SLUB ✅ ( Unqueued slab allocator )
         - Why? For more flexible allocations (than the standard 4KiB page size), reduced fragmentation and to be more performant. Because all standard library implementations and other applications rely on the kernel. If the kernel is slow, nothing can be fast.
 
-## Allocations
+# Allocations
 
 Allocations are typically of two types:
 
-### Arena based allocations
+## Arena based allocations
 
 - Works for small sized allocations
 - Initially no heap segment exists in the process's virtual address space
@@ -85,7 +85,7 @@ memory map (after malloc):
 
 - this 0x21000 bytes contiguous region of memory from which chunks are taken (to be given to user via `malloc`) and returned (from the user via `free`) is known as an "arena".
 
-### Memory mapped allocations
+## Memory mapped allocations
 
 - Works for large size allocations ( > 128 KiB )
 - Since these allocations are much larger than the arena itself so it doesn't make sense to extent its boundary again via `brk` for every large allocation. Instead, these requests can be served via directly `mmap`-ing them

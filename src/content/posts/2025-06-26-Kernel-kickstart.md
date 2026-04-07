@@ -12,7 +12,7 @@ tags:
 description: Environment setup  bash !/bin/bash mkdir initramfs cp initramfs.cpio.gz
   initramfs cd initramfs gzip d initramfs.cpio.gz cpio idmv < initramfs.cpio rm...
 ---
-## Environment setup
+# Environment setup
 
 ```bash
 #!/bin/bash
@@ -42,9 +42,9 @@ chmod +x extract-vmlinux
 ```
 {: file="extract-vmlinux.sh"}
 
-## Helper functions
+# Helper functions
 
-### General
+## General
 
 ```c
 void log_info(const char *name, uint64_t value) {
@@ -129,7 +129,7 @@ void setup_sigsegv_handler() {
 }
 ```
 
-### `msg_msg` related
+## `msg_msg` related
 
 ```c
 #define MSG_COPY 040000
