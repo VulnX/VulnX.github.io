@@ -2,7 +2,7 @@
 title: Cross Cache Attacks
 date: '2026-04-05T05:30:00+05:30'
 event: Blog Post
-category: Vulnerability Research
+category: Research
 difficulty: Intermediate
 author:
 - VulnX

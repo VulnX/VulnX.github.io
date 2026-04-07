@@ -2,7 +2,7 @@
 title: Dirty Pipe (CVE-2022-0847)
 date: '2025-08-05T22:00:00+05:30'
 event: Blog Post
-category: Vulnerability Research
+category: Research
 difficulty: Intermediate
 author:
 - VulnX
