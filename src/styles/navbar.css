@@ -92,6 +92,7 @@ main {
   cursor: pointer;
   color: var(--white);
   z-index: 10;
+  flex-shrink: 0;
 }
 
 .mobile-links {
@@ -115,18 +116,36 @@ main {
     display: none;
   }
 
+
+  /* nav-title takes the middle space, shrinks freely */
   .nav-title {
     font-size: 1.2rem;
-    max-width: 70%;
+    min-width: 0;
+    overflow: visible;
+    /* let the blinking cursor breathe */
+    display: block;
+    position: relative;
+  }
+
+  /* inner span does the actual truncation */
+  .nav-title span {
+    display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: block;
+    /* leave 20px for the blinking cursor */
+    padding-right: 20px;
   }
 
+  /* keep cursor anchored inside the allocated padding */
+  .nav-title span::after {
+    right: 2px !important;
+  }
 
+  /* hamburger ALWAYS stays, never shrinks */
   .hamburger {
     display: block;
+    flex-shrink: 0;
   }
 
   .mobile-links {

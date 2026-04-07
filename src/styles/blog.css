@@ -136,6 +136,7 @@ code {
 
 :not(pre)>code {
   color: var(--dark-red);
+  word-break: break-word;
 }
 
 pre {

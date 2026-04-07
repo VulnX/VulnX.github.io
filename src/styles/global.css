@@ -47,6 +47,7 @@ a {
   text-decoration: none;
   position: relative;
   color: var(--dark-blue);
+  word-break: break-word;
 }
 
 a::after {
