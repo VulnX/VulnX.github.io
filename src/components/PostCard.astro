@@ -4,7 +4,6 @@ const {
   title,
   date,
   category,
-  author = [],
   tags = [],
   description,
 } = Astro.props.frontmatter;
@@ -33,20 +32,6 @@ const { id } = Astro.props;
       </div>
 
       <div class="post-footer">
-        <div class="authors">
-          <i class="fa-regular fa-user"></i>
-          <span>
-            {
-              author.map((a, i) => (
-                <span>
-                  {a}
-                  {i < author.length - 1 ? ", " : ""}
-                </span>
-              ))
-            }
-          </span>
-        </div>
-
         <div class="date">
           <i class="fa-regular fa-calendar"></i>
           <span>

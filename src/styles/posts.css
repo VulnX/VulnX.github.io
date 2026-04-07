@@ -123,9 +123,6 @@ main {
 }
 
 .post-footer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
   font-size: 0.8rem;
   color: var(--grey);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -142,10 +139,6 @@ main {
 .post-footer i {
   font-size: 0.75rem;
   opacity: 0.7;
-}
-
-.authors span {
-  white-space: normal;
 }
 
 .date {
