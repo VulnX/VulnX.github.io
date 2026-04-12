@@ -44,25 +44,16 @@ body {
 }
 
 a {
-  text-decoration: none;
-  position: relative;
-  color: var(--dark-blue);
+  color: var(--blue);
   word-break: break-word;
+  text-decoration: underline;
+  text-underline-offset: 7px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgb(from var(--blue) r g b / 50%);
+  transition: 0.15s ease;
 }
 
-a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background-color: var(--dark-blue);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: 0.2s;
-}
-
-a:hover::after {
-  transform: scaleX(1);
+a:hover {
+  color: var(--white);
+  text-decoration-color: var(--white);
 }

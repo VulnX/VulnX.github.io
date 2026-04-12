@@ -259,8 +259,10 @@ summary {
 
 .toc li a {
   color: var(--grey);
+  text-decoration-color: rgb(from var(--grey) r g b / 50%);
+  z-index: 1;
 }
 
-.toc li a::after {
-  all: unset;
+.toc li a:hover {
+  text-decoration-color: var(--grey);
 }

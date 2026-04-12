@@ -78,10 +78,11 @@ main {
 .nav-links ul li a {
   font-size: 1.2rem;
   color: var(--white);
+  text-decoration-color: rgb(from var(--white) r g b / 50%);
 }
 
-.nav-links ul li a::after {
-  background-color: var(--white);
+.nav-links ul li a:hover{
+  text-decoration-color: var(--white);
 }
 
 .hamburger {
