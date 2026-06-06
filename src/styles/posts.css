@@ -20,7 +20,7 @@ main {
 }
 
 .post-card {
-  height: 300px;
+  min-height: 300px;
   background: var(--dark-grey);
   border-radius: 14px;
   padding: 1.4rem;

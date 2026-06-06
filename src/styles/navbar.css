@@ -191,8 +191,8 @@ main {
     text-align: center;
   }
 
-  .mobile-links ul li a::after {
-    background-color: var(--white);
+  .mobile-links ul li a {
+    text-decoration-color: var(--white);
   }
 
 }
