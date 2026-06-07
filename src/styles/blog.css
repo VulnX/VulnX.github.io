@@ -156,6 +156,14 @@ code {
   color: var(--dark-red);
 }
 
+a:has(> code) {
+  text-decoration-color: rgb(from var(--dark-red) r g b / 50%);
+}
+
+a:has(> code) > code:hover {
+  color: var(--white);
+}
+
 pre {
   font-family: 'IBM Plex Mono';
   background-color: var(--black) !important;
