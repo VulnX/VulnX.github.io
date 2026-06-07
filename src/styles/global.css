@@ -24,7 +24,7 @@ html {
 * {
   margin: 0;
   padding: 0;
-  user-select: none;
+  /* user-select: none; */
 }
 
 *,
@@ -47,13 +47,19 @@ a {
   color: var(--blue);
   word-break: break-word;
   text-decoration: underline;
-  text-underline-offset: 7px;
+  text-underline-offset: 4px;
   text-decoration-thickness: 1px;
   text-decoration-color: rgb(from var(--blue) r g b / 50%);
   transition: 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a:hover {
   color: var(--white);
   text-decoration-color: var(--white);
+}
+
+::selection {
+  background-color: var(--white);
+  color: var(--black);
 }
