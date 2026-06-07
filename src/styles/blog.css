@@ -285,3 +285,8 @@ summary {
 .toc li a:hover {
   text-decoration-color: var(--grey);
 }
+
+.center {
+  display: grid;
+  place-items: center;
+}
